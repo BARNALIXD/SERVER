@@ -17,13 +17,10 @@
 const http = require('http');
 const fs = require('fs');
 
-const myServer = http.createServer((req,res) => {
-   fs.appendFile("chick.txt", req.body, (err, data) => {
-      res.end("hello from the server");
-   })
-   console.log("New req recieved");
-   res.end("baby shark");
-});
+const myServer = http.createServer(function (req, res) {
+   console.log(req);
+   res.end("hello from the server");
+})
 
 
 myServer.listen(8000, () => {
