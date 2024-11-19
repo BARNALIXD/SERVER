@@ -18,9 +18,9 @@ const http = require('http');
 const fs = require('fs');
 
 const myServer = http.createServer(function (req, res) {
-   console.log(req);
+   console.log("new req response");
    res.end("hello from the server");
-})
+});
 
 
 myServer.listen(8000, () => {
