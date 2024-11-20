@@ -20,7 +20,16 @@ const fs = require('fs');
 const myServer = http.createServer(function (req, res) {
    const log = '${Date.now()}: ${req.url} New req Received\n' ;
    fs.appendFile('log.txt', log, (err, data) => {
-      res.end("hello from the server")
+      switch(req.url) {
+         case '/': res.end("Hello from the HOME PAGE"); 
+         break
+         case '/about': res.end("hy my name is barnali das");
+         break;
+         case '/login': res.end("helo from the login page"); 
+         break;
+         default:
+            res.end("404 Not found");
+      }
    });
    
 });
