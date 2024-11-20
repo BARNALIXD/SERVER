@@ -18,7 +18,7 @@ const http = require('http');
 const fs = require('fs');
 
 const myServer = http.createServer(function (req, res) {
-   const log = '${Date.now()}:New req Received\n' ;
+   const log = '${Date.now()}: ${req.url} New req Received\n' ;
    fs.appendFile('log.txt', log, (err, data) => {
       res.end("hello from the server")
    });
