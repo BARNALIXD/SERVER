@@ -16,11 +16,15 @@
 // });
 const http = require('http');
 const fs = require('fs');
+const url = require('url'); 
 
 const myServer = http.createServer(function (req, res) {
+   if (req.url === "/favicon.ico") return res.end();
    const log = '${Date.now()}: ${req.url} New req Received\n' ;
+   const myUrl = url.parse(req.url);
+   console.log(myUrl);
    fs.appendFile('log.txt', log, (err, data) => {
-      switch(req.url) {
+      switch(myUrl.pathname) {
          case '/': res.end("Hello from the HOME PAGE"); 
          break;
          case '/about': res.end("hy my name is barnali das");
