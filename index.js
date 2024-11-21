@@ -22,7 +22,7 @@ const myServer = http.createServer(function (req, res) {
    fs.appendFile('log.txt', log, (err, data) => {
       switch(req.url) {
          case '/': res.end("Hello from the HOME PAGE"); 
-         break
+         break;
          case '/about': res.end("hy my name is barnali das");
          break;
          case '/login': res.end("helo from the login page"); 
